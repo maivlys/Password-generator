@@ -15,7 +15,14 @@ html, body {
   display: flex;
   justify-content: center;
   color: rgb(230, 230, 230);
-  background-color: #2c2c2c;
+  /* background-color: #2c2c2c; */
+  /* background-color: rgb(153, 153, 153); */
+
+}
+
+body{
+  background: linear-gradient( #95B174, rgb(59, 59, 59));
+  background-attachment:fixed;
 }
 
 div#container {
@@ -87,17 +94,17 @@ div#inputs input{
   border: none;
   box-shadow: 1px 1px 6px rgb(49, 49, 49);
   border-radius: 8px;
-  background-color: #b1ff52dc;
-  color: #634b68;
+  background-color: #a2d16dea;
+  color: #2e2e2e;
 }
 
 #generateBtn:hover{
   cursor: pointer;
-  background-color: #b1ff52;
+  background-color: #a2d16d;
 }
 
 #generateBtn:active{
-  background-color: #b1ff52d5;
+  background-color: #a2d16dd5;
 }
 
 #result{
