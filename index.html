@@ -52,27 +52,34 @@
       </h1>
       <p>
         Please make my password
-        <span><input type="number" id="pswd-length" value="5" min="4" /></span>
+        <span
+          ><input type="number" id="pswd-length" value="4" min="4" max="20"
+        /></span>
         characters long.
       </p>
       <br />
-      <p id="">Include these characters:</p>
-      <input type="checkbox" id="lowerC" />
-      <label for="lowerC">Lowercase</label>
+      <p id="instruction">Included characters:</p>
+      <div id="inputs">
+        <input type="checkbox" id="lowerC" />
+        <label for="lowerC">Lowercase</label>
 
-      <input type="checkbox" id="upperC" />
-      <label for="upperC">Uppercase</label>
+        <input type="checkbox" id="upperC" />
+        <label for="upperC">Uppercase</label>
 
-      <input type="checkbox" id="nums" />
-      <label for="nums">Numbers</label>
+        <input type="checkbox" id="nums" />
+        <label for="nums">Numbers</label>
 
-      <input type="checkbox" id="syms" />
-      <label for="syms">Symbols</label><br />
+        <input type="checkbox" id="syms" />
+        <label for="syms">Symbols</label><br />
+      </div>
+      <div id="result">
+        <button id="generateBtn">Generate</button>
+        <div id="msgDisplay">
+          <p id="msg">message</p>
+        </div>
+      </div>
 
-      <button id="generateBtn">Generate</button>
-
-      <p id="msg">message</p>
-      <p id="">Feel free to try again if you don't like me.</p>
+      <p id="retryMsg"></p>
     </div>
     <script src="app.js"></script>
   </body>
