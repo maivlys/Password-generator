@@ -52,7 +52,7 @@
       </h1>
       <p>
         Please make my password
-        <span><input type="number" id="pswd-length" value="5" /></span>
+        <span><input type="number" id="pswd-length" value="5" min="4" /></span>
         characters long.
       </p>
       <br />
@@ -68,8 +68,11 @@
 
       <input type="checkbox" id="syms" />
       <label for="syms">Symbols</label><br />
-      <button>Generate</button>
+
+      <button id="generateBtn">Generate</button>
+
       <p id="msg">message</p>
+      <p id="">Feel free to try again if you don't like me.</p>
     </div>
     <script src="app.js"></script>
   </body>

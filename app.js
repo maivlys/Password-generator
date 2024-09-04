@@ -1,29 +1,10 @@
-let numberOfDice = 5;
-
-let result = "";
-let dice;
-
-for (let i = 1; i <= numberOfDice; i++) {
-  dice = Math.floor(Math.random() * 6 + 1);
-
-  if (i == numberOfDice) {
-    result += `${dice}`;
-  } else {
-    result += `${dice}-`;
-  }
-}
-
-console.log(result);
-
-// ------------------------------------password generator
-
 function generatePassword() {
-  const passwordLength = 8;
+  const passwordLength = document.getElementById("pswd-length").value;
 
-  const allowLowerCases = true;
-  const allowUpperCases = true;
-  const allowNumbers = true;
-  const allowSymbols = true;
+  const allowLowerCases = document.getElementById("lowerC");
+  const allowUpperCases = document.getElementById("upperC");
+  const allowNumbers = document.getElementById("nums");
+  const allowSymbols = document.getElementById("syms");
 
   const lowerCases = "abcdefghijklmnopqrstuvwxyz";
   const upperCases = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -34,47 +15,33 @@ function generatePassword() {
   let randomIndex;
   let password = "";
 
-  if (passwordLength < 0) {
-    console.log("Password length can not be below zero.");
-    password = "no password was set";
-  } else if (passwordLength < 5) {
-    console.log("Password length must be at least 5 characters.");
-    password = "no password was set";
-  } else {
-    allowedChars += allowLowerCases ? lowerCases : "";
-    allowedChars += allowUpperCases ? upperCases : "";
-    allowedChars += allowNumbers ? numbers : "";
-    allowedChars += allowSymbols ? symbols : "";
+  let msg = document.getElementById("msg");
 
-    // if (allowLowerCases) {
-    //   allowedChars += lowerCases;
-    // }
+  allowedChars += allowLowerCases.checked ? lowerCases : "";
+  allowedChars += allowUpperCases.checked ? upperCases : "";
+  allowedChars += allowNumbers.checked ? numbers : "";
+  allowedChars += allowSymbols.checked ? symbols : "";
 
-    // if (allowUpperCases) {
-    //   allowedChars += upperCases;
-    // }
-
-    // if (allowNumbers) {
-    //   allowedChars += numbers;
-    // }
-
-    // if (allowSymbols) {
-    //   allowedChars += symbols;
-    // }
-
-    for (let i = 0; i < passwordLength; i++) {
-      randomIndex = Math.floor(Math.random() * (allowedChars.length - 1));
-      password += allowedChars[randomIndex];
-    }
+  if (allowedChars === "") {
+    msg.textContent = "You have to select at least one group of characters :)";
+    return;
   }
 
-  return password;
+  // if (allowLowerCases) {
+  //   allowedChars += lowerCases;
+  // }
+
+  for (let i = 0; i < passwordLength; i++) {
+    randomIndex = Math.floor(Math.random() * (allowedChars.length - 1));
+    password += allowedChars[randomIndex];
+  }
+
+  msg.textContent = password;
 }
 
-let password = generatePassword();
-console.log(`Your random generated password is: ${password}`);
+// let password = generatePassword();
+// console.log(`Your random generated password is: ${password}`);
 
-// console.log(allowedChars);
-// console.log(allowedChars.length);
-// console.log(allowedChars[75]);
-// console.log(Math.floor(Math.random() * allowedChars.length));
+const generateBtn = document.getElementById("generateBtn");
+
+generateBtn.addEventListener("click", generatePassword);
