@@ -27,10 +27,22 @@ function generatePassword() {
   //   allowedChars += lowerCases;
   // }
 
+  if (passwordLength < 0) {
+    retryMsg.textContent = "Password length can not be set below zero";
+    return;
+  } else if (passwordLength < 4 || passwordLength > 20) {
+    retryMsg.textContent =
+      "Password length has to be set between 4-20 characters.";
+    msg.textContent = "password";
+    document.getElementById("msgDisplay").style.color = "#c4c4c4";
+    return;
+  }
+
   if (allowedChars === "") {
     retryMsg.textContent =
       "You have to select at least one group of characters";
-    document.getElementById("msgDisplay").style.opacity = "0";
+    msg.textContent = "password";
+    document.getElementById("msgDisplay").style.color = "#c4c4c4";
     return;
   }
 
@@ -42,7 +54,7 @@ function generatePassword() {
   msg.textContent = password;
   retryMsg.textContent =
     "If you don't like me, feel free to try again until you do! :)";
-  document.getElementById("msgDisplay").style.opacity = "1";
+  document.getElementById("msgDisplay").style.color = "#1f1f1f";
 }
 
 // let password = generatePassword();
