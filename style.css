@@ -115,11 +115,10 @@ div#inputs input{
 
 #msgDisplay{
   background-color: rgb(245, 245, 245);
-  color: #1f1f1f;
+  color: #c4c4c4;
   padding: 8px;
   border: none;
   border-radius: 8px;
-  opacity: 0;
 }
 
 #msg{
